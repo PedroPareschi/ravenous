@@ -1,22 +1,12 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import styles from './Business.module.css';
 
-const Business = () => {
-    const business = {
-        imageSrc: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
-        name: 'MarginOtto Pizzeria',
-        address: '1010 Paddington Way',
-        city: 'Flavortown',
-        state: 'NY',
-        zipCode: '10101',
-        category: 'Italian',
-        rating: 4.5,
-        reviewCount: 90
-    };
-
+const Business = props => {
+    const business = props.business;
     return (
         <Card className="h-100 shadow-sm">
-            <Card.Img variant="top" src={business.imageSrc} alt="image" />
+            <Card.Img variant="top" src={business.imageSrc} alt="image" className={styles.squareImg} />
             <Card.Body>
                 <Card.Title>{business.name}</Card.Title>
                 <Card.Text>
