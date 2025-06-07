@@ -1,7 +1,7 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import SearchBar from "./components/SearchBar.jsx";
-import BusinessList from "./components/BusinessList.jsx";
+import SearchBar from "./components/SearchBar/SearchBar.jsx";
+import BusinessList from "./components/BusinessList/BusinessList.jsx";
+import styles from './App.module.css';
 
 const businesses = [
     {
@@ -62,16 +62,14 @@ const businesses = [
 ];
 
 
-function App() {
-    return (
-        <div className="bg-light min-vh-100 py-4">
-            <div className="text-center mb-4">
-                <h1>Business Finder</h1>
-            </div>
-            <SearchBar/>
-            <BusinessList businesses={businesses} />
-        </div>
-    );
-}
+const App = () => {
+  return (
+    <div className={styles.App}>
+      <h1>ravenous</h1>
+      <SearchBar />
+      <BusinessList businesses={businesses} />
+    </div>
+  );
+};
 
 export default App;
