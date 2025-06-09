@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./SearchBar.module.css";
-import { searchBusinesses } from "../../utils/yarn";
+import { searchBusinesses } from "../../utils/yelp";
 
 const sortByOptions = {
     "Best Match": "best_match",
