@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./SearchBar.module.css";
+import { searchBusinesses } from "../../utils/yarn";
 
 const sortByOptions = {
     "Best Match": "best_match",
@@ -7,7 +8,7 @@ const sortByOptions = {
     "Most Reviewed": "review_count",
 };
 
-const SearchBar = () => {
+const SearchBar = ({onSubmit}) => {
 
     const [selectedSortBy, setSelectedSortBy] = React.useState("best_match");
 
@@ -37,12 +38,17 @@ const SearchBar = () => {
         setLocation(event.target.value);
     }
 
-    const handleSubmitClick = () => {
+    const handleSubmitClick = async () => {
         if (searchTerm.trim() === "" || location.trim() === "") {
             alert("Please enter both search term and location.");
             return;
         }
-        console.log(`Searching for "${searchTerm}" in "${location}" sorted by "${selectedSortBy}"`);
+        const business = await searchBusinesses(searchTerm, location, selectedSortBy);
+        if (business.length === 0) {
+            alert("No businesses found. Please try a different search.");
+        } else {
+            onSubmit(business);
+        }
     }
 
     return (

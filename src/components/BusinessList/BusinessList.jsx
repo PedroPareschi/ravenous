@@ -5,9 +5,10 @@ import Business from "../Business/Business";
 const BusinessList = ({ businesses }) => {
   return (
     <div className={styles.BusinessList}>
-      {businesses.map((business) => {
-        return <Business business={business} key={business.name} />;
-      })}
+      {businesses.length === 0 && <div style={{ flex: 1, minHeight: 200 }} />}
+      {businesses.map((business) => (
+        <Business business={business} key={business.id} />
+      ))}
     </div>
   );
 };
