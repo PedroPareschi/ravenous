@@ -1,4 +1,5 @@
 import React from 'react';
+import 'whatwg-fetch'
 import SearchBar from "./components/SearchBar/SearchBar.jsx";
 import BusinessList from "./components/BusinessList/BusinessList.jsx";
 import styles from './App.module.css';
